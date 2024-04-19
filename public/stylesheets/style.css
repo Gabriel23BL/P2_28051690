@@ -153,7 +153,8 @@ font-weight: 100;
   }
 }
 @media (min-width: 641px) AND (max-width: 768px){
-  .home {
+  .home,
+  .container2{
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -165,7 +166,8 @@ font-weight: 100;
   }
 }
 @media (min-width: 769px) AND (max-width: 1024px){
-  .home {
+  .home,
+  .container2 {
     display: flex;
     flex-direction: culumn;
     width: 80%;
