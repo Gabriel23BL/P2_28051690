@@ -157,6 +157,7 @@ font-weight: 100;
   }
 }
 @media (min-width: 641px) AND (max-width: 768px){
+  .contenedor2,
   .container2{
     display: flex;
     flex-direction: column;
@@ -169,7 +170,8 @@ font-weight: 100;
     background-color: green;
     border: 1px solid black;
   }
-  .container{
+  .container,
+  .contenedor{
     display: flex;
     flex-direction: column;
     gap: 16;
