@@ -2,15 +2,14 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  background-color: #ece2e2 ;
+  background-color: #ece2e2;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 
 
 
-
-/*
+/**
 .contenedor {
   position: absolute;
   margin: 0;
@@ -34,9 +33,6 @@ body {
   justify-content: space-between;
 }
 */
-
-
-
 
 @media (max-width: 375px) {
   .pc {
@@ -171,4 +167,143 @@ body {
       letter-spacing: 1px;
   }
 
+  .contenedor21 {
+      background-color: white;
+      padding: 10px;
+      padding-top: 30px;
+  }
+
+  .informacion {
+      border-bottom: 3px solid white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      color: #143f72;
+  }
+
+  .cuadro-info2 {
+      border-bottom: 3px solid #143f72;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .acerda-de-mi {
+      font-size: 20px;
+      color: #143f72;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+  }
+
+  .parrafo-acerca-de-mi {
+      text-align: justify;
+      text-indent: 20px;
+  }
+
+  .cuadro-info3 {
+      border-left: 3px solid #143f72;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .circulo-azul {
+      display: flex;
+  }
+
+  .circulo-azul-pequeño {
+      width: 20px;
+      height: 20px;
+      background-color: #143f72;
+      border-radius: 100%;
+      margin-left: -31px;
+      margin-right: 20px;
+  }
+
+  .exp-laboral {
+      font-size: 20px;
+      color: #143f72;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+      margin-left: -60px;
+  }
+
+  .experiencia-laboral {
+      list-style: none;
+      margin-left: -20px;
+      margin-top: -10px;
+  }
+  .experiencia-laboral li {
+      margin-bottom: 10px;
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.sin-nombre {
+  width: 50%;
+}
+
+.mi-nombre {
+  width: 50%;
+  color: white;
+}
+
+
+
+.informacion {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  color: #143f72;
+  margin-top: 30px;
+}
+
+
+.cuadro-info-derecho {
+  border: 1px solid green;
+  border-bottom: 3px solid #143f72;
+  margin-bottom: 15px;
+}
+
+.cuadro-derecho {
+  border: 1px solid red;
+  margin-top: 15px;
+  border-left: 3px solid #143f72;
+}
+
+
+
+
+.li-estilo-contacto li {
+  display: flex;
+  flex-direction: row;
+  margin-left: -40px;
+}
+
+*/
