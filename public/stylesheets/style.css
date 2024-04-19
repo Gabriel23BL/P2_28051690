@@ -8,33 +8,86 @@ body {
 
 
 
+@media (min-width: 641px) {
+  .pc {
+      display: flex;
+  }
+  .mobil {
+      display: none;
+  }
 
-/**
-.contenedor {
-  position: absolute;
-  margin: 0;
-  width: 100%;
+  .contenedor {
+      position: absolute;
+      margin: 0;
+      width: 100%;
+  }
+  .contenedor2 {
+      position: absolute;
+      margin: 0;
+      width: 45%;
+      background-color: #386eae;
+      border: 1px solid red;
+      margin-left: 20px;
+  }
+
+  .container {
+      display: flex;
+      justify-content: space-between;
+      background-color: #143f72;
+      margin-top: 30px;
+  }
+
+  .container2 {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .sin-nombre {
+      width: 50%;
+  }
+  
+  .mi-nombre {
+      width: 50%;
+      color: white;
+  }
+
+  .informacion {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      color: #143f72;
+      margin-top: 30px;
+  }
+
+  /** section 2 de vista pc */
+  .cuadro-imagen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 290px;
+      margin-top: 25px;
+  }
+
+  img {
+      width: 100%;
+      height: 60vh;
+  }
+
+  .circulo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      width: 80%;
+      border: 4px solid white;
+      border-radius: 100%;
+      background-color: #526d82;
+      overflow: hidden;
+  }
 }
 
-
-
-
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  background-color: #143f72;
-
-  margin-top: 30px;
-}
-
-.container2 {
-  display: flex;
-  justify-content: space-between;
-}
-*/
-
-@media (max-width: 375px) {
+@media (max-width: 640px) {
   .pc {
       display: none;
   }
@@ -239,71 +292,9 @@ body {
       list-style: none;
       margin-left: -20px;
       margin-top: -10px;
+      margin-bottom: 40px;
   }
   .experiencia-laboral li {
       margin-bottom: 10px;
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
-.sin-nombre {
-  width: 50%;
-}
-
-.mi-nombre {
-  width: 50%;
-  color: white;
-}
-
-
-
-.informacion {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  color: #143f72;
-  margin-top: 30px;
-}
-
-
-.cuadro-info-derecho {
-  border: 1px solid green;
-  border-bottom: 3px solid #143f72;
-  margin-bottom: 15px;
-}
-
-.cuadro-derecho {
-  border: 1px solid red;
-  margin-top: 15px;
-  border-left: 3px solid #143f72;
-}
-
-
-
-
-.li-estilo-contacto li {
-  display: flex;
-  flex-direction: row;
-  margin-left: -40px;
-}
-
-*/
