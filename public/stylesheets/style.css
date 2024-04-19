@@ -2,71 +2,68 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  background-color: #ece2e2 ;
+  background-color: #ece2e2;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 img {
-  max-width: 100%;
-  height: auto;
+  width: 400px;
+  height: 500px;
 }
-
-
-
 .contenedor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+  margin: 0;
+  width: 100%;
 }
+.titulo-mi-nombre {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+.subtitulo-mi-nombre {
+  font-size: 17px;
+  letter-spacing: 3px;
 
+font-weight: 100;
+  margin-top: -10px;
+}
 .container {
   display: flex;
   justify-content: space-between;
   background-color: #143f72;
   margin-top: 30px;
-  padding: 10px 20px;
 }
-
 .container2 {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 30px;
 }
-
 .contenedor2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  max-width: 1200px;
-  background-color: #386eae;
+  width: 40%;
+  background-color: #386eae; 
   border: 3px solid #09f509;
-  margin-top: 20px;
-  padding: 20px;
+  margin-left: 20px;
+  margin-top: 0;
+  position: absolute;
 }
-
 .circulo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
+  width: 80%;
+  width: 80%;
   border: 4px solid white;
   border-radius: 100%;
   background-color: #526d82;
   overflow: hidden;
 }
-
 .cuadro-imagen {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-height: 290px;
+  height: 290px;
   border: 1px solid black;
-  margin-bottom: 15px;
 }
-
 .cuadro-info {
   border: 1px solid black;
   border-bottom: 2px solid white;
@@ -75,16 +72,13 @@ img {
   width: 90%;
   margin-top: 15px;
 }
-
 .sin-nombre {
   width: 50%;
 }
-
 .mi-nombre {
   width: 50%;
   color: white;
 }
-
 .informacion {
   display: flex;
   flex-direction: column;
@@ -92,35 +86,24 @@ img {
   color: #143f72;
   margin-top: 30px;
 }
-
 .cuadro-info-derecho {
   border: 1px solid green;
   border-bottom: 3px solid #143f72;
   margin-bottom: 15px;
 }
-
 .cuadro-derecho {
   border: 1px solid red;
   margin-top: 15px;
   border-left: 3px solid #143f72;
 }
-
 .li-estilo-contacto {
   border: 1px solid white;
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding: 0;
 }
-
 .li-estilo-contacto li {
   display: flex;
   flex-direction: row;
-  margin: 5px 0;
+  margin-left: -40px;
 }
-
-.info-titulo {
-  font-weight: 100;
-  margin-top: -10px;
-}
-
