@@ -145,7 +145,7 @@ a {
       font-weight: 700;
   }
 
-  .info-icono {
+  .info-icono, a {
       margin-left: 10px;
       color: white;
       font-size: 20px;
@@ -287,7 +287,7 @@ a {
       color: #143f72;
   }
 
-  .info-icono {
+  .info-icono, a {
       margin-left: 10px;
       color: white;
       font-size: 15px;
