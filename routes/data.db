@@ -1,1 +1,8 @@
-
+`CREATE TABLE IF NOT EXISTS contactos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email VARCHAR(50) NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
+  comentario TEXT,
+  ip TEXT NOT NULL,
+  fecha_hora TEXT
+)`;

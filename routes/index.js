@@ -16,7 +16,7 @@ const db = new sqlite.Database('./data.db', sqlite.OPEN_READWRITE, (error) =>{
     console.error(error);
   }
 });
-sql = `CREATE TABLE IF NOT EXISTS contactos (
+sql= `CREATE TABLE IF NOT EXISTS contactos (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   email VARCHAR(50) NOT NULL,
   nombre VARCHAR(50) NOT NULL,
@@ -29,4 +29,22 @@ db.run(sql, (error) => {
     console.error(error);
   }
 });
+class ContactosModel {
+  static guardarContacto(contacto) {
+    const db = this.conectarDB();
 
+    db.run(
+      'INSERT INTO contactos (email, nombre, comentario, ip, fecha) VALUES (?, ?, ?, ?, ?)',
+      [contacto.email, contacto.nombre, contacto.comentario, contacto.ip, contacto.fecha],
+      function(err) {
+        if (err) {
+          console.error(err.message);
+        } else {
+          console.log(`Contacto con ID ${this.lastID} guardado correctamente`);
+        }
+      }
+    );
+
+    db.close();
+  }
+}
