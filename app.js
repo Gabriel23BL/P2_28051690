@@ -39,3 +39,81 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// Obtener el formulario
+const contactForm = document.getElementById('contactForm');
+
+// Agregar el evento submit al formulario
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+    // Obtener los valores de los campos del formulario
+    const email = document.getElementById('email').value;
+    const nombre = document.getElementById('nombre').value;
+    const comentario = document.getElementById('comentario').value;
+
+    // Validar los datos del formulario
+    if (email && nombre && comentario) {
+        // Crear un objeto con los datos del formulario
+        const formData = {
+            email: email,
+            nombre: nombre,
+            comentario: comentario
+        };
+
+        // Enviar los datos del formulario al servidor (puedes hacerlo usando fetch, por ejemplo)
+        // Aquí puedes llamar a la clase ContactosController para guardar los datos en la base de datos
+
+        // Redireccionar al usuario a una página de confirmación o mostrar un mensaje de éxito
+        alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+        contactForm.reset(); // Limpiar el formulario
+    } else {
+        alert('Por favor, completa todos los campos del formulario.');
+    }
+});
+
+const sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(':memory:');
+
+class ContactosModel {
+    constructor() {
+        ContactosController.sql = new sqlite3.Database('database.db'); 
+    }
+
+    connect() {
+        this.db.serialize(() => { 
+            ContactosController.sql.run(`
+                CREATE TABLE IF NOT EXISTS controllercontactos (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    email TEXT,
+                    nombre TEXT,
+                    comentario TEXT,
+                    ip TEXT,
+                    fecha_hora TEXT
+                )
+            `);
+        });
+    }
+
+    guardarContacto(contacto) {
+        const { email, nombre, comentario, ip, fecha_hora } = contacto;
+       ContactosController.sql.run(`
+            INSERT INTO contactos (email, nombre, comentario, ip, fecha_hora)
+            VALUES (?, ?, ?, ?, ?)
+        `, [email, nombre, comentario, ip, fecha_hora]);
+    }
+
+    obtenerContactos(callback) {
+        this.db.all('SELECT * FROM contactos', callback);
+    }
+}
+
+class ContactosController {
+    constructor() { 
+       this.contactosModel.connect(); 
+   }
+
+   validarFormulario(contacto) { 
+       // Agrega aquí tu lógica de validación del formulario 
+   }
+}
