@@ -43,14 +43,13 @@ module.exports = app;
 
 //sql
 const sqlite = require("sqlite3");
-let sql = "";
 const db = new sqlite.Database('./data.db', sqlite.OPEN_READWRITE, (error) => {
   if (error) {
     console.error(error);
   }
-}
-);
-sql= `CREATE TABLE IF NOT EXISTS contactos (
+});
+
+const createTableQuery = `CREATE TABLE IF NOT EXISTS contactos (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   email VARCHAR(50) NOT NULL,
   nombre VARCHAR(50) NOT NULL,
@@ -58,9 +57,31 @@ sql= `CREATE TABLE IF NOT EXISTS contactos (
   ip TEXT NOT NULL,
   fecha_hora TEXT
 )`;
-db.run(sql, (error) => {
-  if(error){
+
+db.run(createTableQuery, (error) => {
+  if (error) {
     console.error(error);
   }
 });
-sql= `INSERT INTO contactos (email, nombre, comentario, ip, fecha) VALUES (?, ?, ?, ?, ?)`;
+
+const insertQuery = `INSERT INTO contactos (email, nombre, comentario, ip, fecha_hora) VALUES (?, ?, ?, ?, ?)`;
+
+const email = "example@example.com";
+const nombre = "Gabriel";
+const comentario = "Este es un comentario";
+const ip = "127.0.0.1";
+const fecha_hora = new Date().toISOString();
+
+db.run(insertQuery, [email, nombre, comentario, ip, fecha_hora], function (error) {
+  if (error) {
+    console.error(error.message);
+  } else {
+    console.log(`Contacto con ID ${this.lastID} guardado correctamente`);
+  }
+});
+
+db.close((error) => {
+  if (error) {
+    console.error(error);
+  }
+});
