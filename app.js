@@ -43,14 +43,13 @@ module.exports = app;
 
 //sql
 const sqlite = require("sqlite3");
-const { error } = require('console');
-let sql="";
-
-const db = new sqlite.Database('./data.db', sqlite.OPEN_READWRITE, (error) =>{
-  if(error){
+let sql = "";
+const db = new sqlite.Database('./data.db', sqlite.OPEN_READWRITE, (error) => {
+  if (error) {
     console.error(error);
   }
-});
+}
+);
 sql= `CREATE TABLE IF NOT EXISTS contactos (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   email VARCHAR(50) NOT NULL,
@@ -64,8 +63,4 @@ db.run(sql, (error) => {
     console.error(error);
   }
 });
-
-sql= `INSERT INTO contactos (email, nombre, comentario, ip, fecha) VALUES (?, ?, ?, ?, ?),
-`;
-
-
+sql= `INSERT INTO contactos (email, nombre, comentario, ip, fecha) VALUES (?, ?, ?, ?, ?)`;
