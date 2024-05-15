@@ -67,7 +67,7 @@ db.run(createTableQuery, (error) => {
 const insertQuery = `INSERT INTO contactos (email, nombre, comentario, ip, fecha_hora) VALUES (?, ?, ?, ?, ?)`;
 
 const email = "example@example.com";
-const nombre = "Gabriel";
+const nombre = "nombre";
 const comentario = "Este es un comentario";
 const ip = "127.0.0.1";
 const fecha_hora = new Date().toISOString();
