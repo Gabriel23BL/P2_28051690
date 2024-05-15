@@ -1,6 +1,3 @@
-var contactRouter = require('./routes/contact');
-
-app.use('/contact', contactRouter);
 var express = require('express');
 var router = express.Router();
 const sqlite = require("sqlite3");
