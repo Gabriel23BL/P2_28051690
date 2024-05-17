@@ -431,7 +431,7 @@ body {
     align-items: center;
     gap: 20px;
     width: 100%;
-    background: #202020;
+    background: #143f72;
     margin: auto;
     margin-top: 10px;
 }
@@ -494,7 +494,7 @@ body {
     font-size: 100px;
   }
 
-/* SECCION RESPONSIVE */
+
 @media (max-width:480px){
     .sobremi .contenido-seccion .fila{
         display: flex;
