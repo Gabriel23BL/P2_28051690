@@ -1,13 +1,13 @@
-const ContactosController = require("./ContactosController");
+const ContactosController = require("../controllers/ContactosController");
 const contactosController = new ContactosController();
 
-const indexController = require("./indexController")
-
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get("/", indexController);
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'CV SEBASTIAN RAMIREZ' });
+});
 
 router.post("/form-contacto", contactosController.add);
 
