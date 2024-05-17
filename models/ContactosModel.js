@@ -4,7 +4,7 @@ const { promisify } = require("util");
 class ContactosModel {
   constructor() {
 
-    this.db = new sqlite3.Database("./conf/test.db", (err) => {
+    this.db = new sqlite3.Database("./conf/data.db", (err) => {
       if (err) {
         console.error(err.message);
         return
