@@ -8,7 +8,6 @@
     <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
     <body>
-        <table class="tabla1" id="tabla1">
       <div class="pc">
         <section class="contenedor">
           <article class="container">
@@ -125,8 +124,23 @@
           </ul>
           </article>
         </section>
+        <section>
+            <form action="/send" method="post">
+      
+                <label class="rai" for="">Correo</label><br>
+                <input class="plo"  placeholder="ejemplo@ejemplo.com" type="text" name="correo"><br>
+                
+                <label class="rai" for="">Nombre</label><br>
+                <input class="plo" placeholder="Nombre Completo" type="text" name="nombre"><br>
+                
+                <label class="rai" for="">Comentario</label><br>
+                <textarea placeholder="Ingresa tu comentario" name="comentario" id=""></textarea><br>
+                <button class="bto">Enviar</button>
+            </form>
+            </table>
+        </section>
       </div>
-  
+
       <div class="mobil">
         <section class="contenedor2">
           <div class="contenedor20">
@@ -244,22 +258,23 @@
             </article>
           </div>
         </section>
+        <section>
+            <form action="/send" method="post">
+      
+                <label class="rai" for="">Correo</label><br>
+                <input class="plo"  placeholder="ejemplo@ejemplo.com" type="text" name="correo"><br>
+                
+                <label class="rai" for="">Nombre</label><br>
+                <input class="plo" placeholder="Nombre Completo" type="text" name="nombre"><br>
+                
+                <label class="rai" for="">Comentario</label><br>
+                <textarea placeholder="Ingresa tu comentario" name="comentario" id=""></textarea><br>
+                <button class="bto">Enviar</button>
+            </form>
+            </table>
+        </section>
       </div>
-        </table>  
-  <table class="tabla2" id="tabla2">
-  <form action="/send" method="post">
 
-    <label class="rai" for="">Correo</label><br>
-    <input class="plo"  placeholder="ejemplo@ejemplo.com" type="text" name="correo"><br>
-    
-    <label class="rai" for="">Nombre</label><br>
-    <input class="plo" placeholder="Nombre Completo" type="text" name="nombre"><br>
-    
-    <label class="rai" for="">Comentario</label><br>
-    <textarea placeholder="Ingresa tu comentario" name="comentario" id=""></textarea><br>
-    <button class="bto">Enviar</button>
-</form>
-</table>
     </div>
   </section>
   <script src="/javascripts/validacionform.js"></script>
