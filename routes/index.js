@@ -59,4 +59,3 @@ router.get('/', function(req, res, next) {
 router.post('/send', (req, res) => controller.add(req, res));
 
 module.exports = router;
-
