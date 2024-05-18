@@ -13,11 +13,11 @@ class ContactosModel{
   }
 
   connect(){
-    this.db.run('CREATE TABLE IF NOT EXISTS contactos(correo VARCHAR(255), nombre VARCHAR(255), comentario TEXT,ip TEXT,fecha TEXT)');
+    this.db.run('CREATE TABLE IF NOT EXISTS contactos(correo VARCHAR(255), nombre VARCHAR(255), comentario TEXT, ip TEXT, fecha TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)');
 }
   
-  save(correo,nombre,comentario,ip,fecha){
-    this.db.run("INSERT INTO contactos VALUES (?, ?, ?, ?, ?)", [correo, nombre, comentario, ip, fecha]);
+  save(correo,nombre,comentario,ip,fecha, id){
+    this.db.run("INSERT INTO contactos VALUES (?, ?, ?, ?, ?, ?)", [correo, nombre, comentario, ip, fecha, id]);
   }
 
 }
