@@ -6,7 +6,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
   }
   .table1 {
-    margin-bottom: 20px;
+    margin-bottom: 200px;
   }
   
   a {
@@ -398,13 +398,13 @@ body {
 
   /*formulario*/
 .tabla2 {
-    margin-top: 20px;
+    margin-top: 200px;
 
 }
   form {
     max-width: 400px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #386eae;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
