@@ -21,14 +21,6 @@ class ContactosModel{
   }
 
 }
- // Validar los datos del formulario
-
- const { email, name, mensaje } = req.body;
-
- if (!email || !nombre || !comentario) {
-   res.status(400).send("Faltan campos requeridos");
-   return;
- }
 
 
 class ContactosController{

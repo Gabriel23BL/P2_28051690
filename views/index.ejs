@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"/>
     <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
-  <body>
     <body>
+        <table class="tabla1" id="tabla1">
       <div class="pc">
         <section class="contenedor">
           <article class="container">
@@ -245,16 +245,21 @@
           </div>
         </section>
       </div>
-  
+        </table>  
+  <table class="tabla2" id="tabla2">
   <form action="/send" method="post">
-    <label for="">Correo</label><br>
-    <input placeholder="ejemplo@ejemplo.com" type="text" name="correo"><br>
-    <label for="">Nombre</label><br>
-    <input placeholder="Nombre Completo" type="text" name="nombre"><br>
-    <label for="">Comentario</label><br>
+
+    <label class="rai" for="">Correo</label><br>
+    <input class="plo"  placeholder="ejemplo@ejemplo.com" type="text" name="correo"><br>
+    
+    <label class="rai" for="">Nombre</label><br>
+    <input class="plo" placeholder="Nombre Completo" type="text" name="nombre"><br>
+    
+    <label class="rai" for="">Comentario</label><br>
     <textarea placeholder="Ingresa tu comentario" name="comentario" id=""></textarea><br>
-    <button >Enviar</button>
-  </form>
+    <button class="bto">Enviar</button>
+</form>
+</table>
     </div>
   </section>
   <script src="/javascripts/validacionform.js"></script>
