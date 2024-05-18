@@ -18,6 +18,9 @@ body {
     .mobil {
         display: none;
     }
+    form {
+        margin-top: 200px;
+}
   
     .contenedor {
         position: absolute;
@@ -190,7 +193,9 @@ body {
     .mobil {
         display: flex;
     }
-  
+  form {
+    margin-top: 200px;
+  }
     .contenedor2 {
         width: 100vh;
     }
