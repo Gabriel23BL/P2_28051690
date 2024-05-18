@@ -14,19 +14,25 @@ body {
   @media (min-width: 641px) {
     .pc {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
     .mobil {
         display: none;
     }
-    form {
-        margin-top: 200px;
-}
+
+    .pc-add-form {
+        display: flex;
+        flex-direction: column;
+        height: 1280px;
+    }
   
     .contenedor {
         position: absolute;
         margin: 0;
         width: 100%;
     }
+
     .contenedor2 {
         position: absolute;
         margin: 0;
@@ -34,6 +40,18 @@ body {
         background-color: #386eae;
         margin-left: 20px;
     }
+
+    .contenedor3 {
+        width: 100%;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+    }
+
+
   
     .container {
         display: flex;
@@ -192,13 +210,14 @@ body {
   
     .mobil {
         display: flex;
+        flex-direction: column;
     }
-  form {
-    margin-top: 200px;
-  }
-    .contenedor2 {
-        width: 100vh;
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
     }
+  
     .contenedor20 {
         background-color: #386eae;
         padding: 10px;
