@@ -7,7 +7,7 @@ require('dotenv').config();
 
 class ContactosModel {
   constructor() {
-    const dbR = path.join(__dirname, "/database", "dbAdmin.db");
+    const dbR = path.join(__dirname, "/database", "gabriel.db");
     this.db = new sqlite3.Database(dbR, (err) => {
       let question = err ? 'Error' : 'Base de datos creada correctamente.';
       console.log(question);
