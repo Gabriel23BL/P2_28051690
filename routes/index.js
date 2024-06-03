@@ -49,7 +49,7 @@ class ContactosController {
 
     
     const responseGoogle = req.body["g-recaptcha-response"];
-    const secretGoogle = process.env.KEY_PRIVATE["6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq"];
+    const secretGoogle ='6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq';
     const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
     const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
     const google_response_result = await RecaptchaGoogle.json();
