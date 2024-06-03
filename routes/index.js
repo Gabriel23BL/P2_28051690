@@ -3,6 +3,7 @@ var router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
 const path = require('path');
 const nodemailer = require('nodemailer');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 class ContactosModel {
@@ -49,7 +50,7 @@ class ContactosController {
 
     const responseGoogle = req.body["g-recaptcha-response"];
     const secretGoogle = process.env.KEY_PRIVATE;
-    const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
+    const urlGoogle = 'https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}';
     const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
     const google_response_result = await RecaptchaGoogle.json();
     console.log(google_response_result)
@@ -62,6 +63,8 @@ class ContactosController {
       let hora = horas + ':' + minutos;
       let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear() + '' + '/' + '' + hora;
 
+      const fetch = require('node-fetch');
+      
       let transporter = nodemailer.createTransport({
         host: "smtp-mail.outlook.com",
         secureConnection: false,
