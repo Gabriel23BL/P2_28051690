@@ -37,11 +37,14 @@ class ContactosController {
     console.log(req.body)
 
       /*Ip address*/
-
      const ip = req.headers['x-forwarded-for']?.split(',').shift() || req.socket?.remoteAddress;
+
      const url = 'http://ipwho.is/' + ip;
+
      const response = await fetch(url);
+
      const json = await response.json();
+
      const pais = json.country
 
       /*recaptcha */
@@ -57,8 +60,7 @@ class ContactosController {
       console.log(google_response_result)
     if (google_response_result.success == true) {
       
-      /*Fecha y hora*/
-
+      /*los datos de la fecha y la hora*/
       let hoy = new Date();
       let horas = hoy.getHours();
       let minutos = hoy.getMinutes();
@@ -76,15 +78,8 @@ class ContactosController {
             pass: process.env.PASSWORD
           }
       });
-      const customer = `
-						  <h2>Información del Cliente</h2>
-							<p>Email: ${correo}</p>
-							<p>Nombre: ${nombre}</p>
-							<p>Comentario: ${comentario}</p>
-							<p>Fecha: ${fecha}</p>
-							<p>IP: ${ip}</p>
-							<pli>Pais: ${pais}</p>
-							`;
+        const customer = `
+						    <h2>Información del Cliente</h2> <p>Email: ${correo}</p> <p>Nombre: ${nombre}</p> <p>Comentario: ${comentario}</p> <p>Fecha: ${fecha}</p> <p>IP: ${ip}</p> <pli>Pais: ${pais}</p> `;
 
       const receiver = {
         from: process.env.EMAIL,
