@@ -6,6 +6,51 @@ const path = require('path');
 
 require('dotenv').config();
 
+// script.js
+const clientId = '627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com';
+
+const redirectUri = 'AIzaSyCOQzPfuULVYj2Yagm2K9hUGMqBmAXx-kE';
+const scope = 'programacion2ais@dispostable.com';
+
+const googleSigninBtn = document.getElementById('google-signin-btn');
+
+googleSigninBtn.addEventListener('click', () => {
+  const authUrl = 'https://accounts.google.com/o/oauth2/auth?+client_id=${clientId}&+redirect_uri=${redirectUri}&+scope=${scope}&+response_type=code';
+   window.location.href = authUrl;
+});
+
+// Función para manejar la respuesta de la autenticación
+function handleAuthResponse() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code');
+  const error = urlParams.get('error');
+  if (error) {
+    console.error('Error de autenticacion: error')
+  } else {
+    // Intercambiar el código por un token de acceso
+    fetch('https://oauth2.googleapis.com/token',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: 'grant_type=authorization_code&+code=${code}&+redirect_uri=${redirectUri}&+client_id=${clientId}&+client_secret=YOUR_CLIENT_SECRET'})
+      .then(response => response.json())
+     .then(data => {
+        const accessToken = data.access_token;
+        // Llamar a la API de Google para obtener la información del perfil
+        fetch('https://openidconnect.googleapis.com/v1/userinfo?access_token=${accessToken}')
+         .then(response => response.json())
+         .then(data => {
+            const profileDiv = document.getElementById('profile');
+            profileDiv.innerHTML = 'Bienvenido, ${data.name}!'
+          });
+        });
+  }}
+
+// Llamar a la función para manejar la respuesta de la autenticación
+handleAuthResponse();
+
+
+
 class ContactosModel {
   constructor() {
     const dbR = path.join(__dirname, "/database", "reqistrados.db");
@@ -80,6 +125,7 @@ class ContactosController {
       });
         const customer = `
 						    <h2>Información del Cliente</h2> <p>Email: ${correo}</p> <p>Nombre: ${nombre}</p> <p>Comentario: ${comentario}</p> <p>Fecha: ${fecha}</p> <p>IP: ${ip}</p> <pli>Pais: ${pais}</p> `;
+
 
       const receiver = {
         from: process.env.EMAIL,
