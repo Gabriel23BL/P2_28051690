@@ -1,29 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+</style>
 <body>
-  <div class="login">
-    <h1>Login</h1>
-    <form action="/auth/login" method="POST">
-      <div class="usuario">
-        <input type="text" name="username" id="username" autocomplete="off" required>
-        <label for="username">Nombre de Usuario:</label>
-      </div>
-      <div class="usuario">
-        <input type="password" name="password" id="password" autocomplete="off" required>
-        <label for="password">Contraseña:</label>
-      </div>
-      <button type="submit" class="btn-enviar">Ingresar</button>
-      <div class="google">
-        <p>Tambien puedes ingresar con Google:</p>
-      </div>
-    </form>
-    <a href="/auth/google"><button class="btn-enviar">Google</button></a>
-  </div>
+ <!-- login -->
+
+    <main>
+        <form method="POST" action="/login">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            </div>
+
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            </div>
+
+
+            <div class="mb-3">
+                <a href="/github">Sign in Github account!</a>
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </main>
 </body>
 </html>

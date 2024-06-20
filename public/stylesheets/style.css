@@ -1,463 +1,462 @@
 body {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    background-color: #ece2e2;
-    font-family: Arial, Helvetica, sans-serif;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #ece2e2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 641px) {
+  .pc {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+  .mobil {
+      display: none;
+  }
+
+  .pc-add-form {
+      display: flex;
+      flex-direction: column;
+      height: 1280px;
+  }
+
+  .contenedor {
+      position: absolute;
+      margin: 0;
+      width: 100%;
+  }
+
+  .contenedor2 {
+      position: absolute;
+      margin: 0;
+      width: 45%;
+      background-color: #386eae;
+      margin-left: 20px;
+  }
+
+  .contenedor3 {
+      width: 100%;
+  }
+
+  .formulario {
+      display: flex;
+      flex-direction: column;
+      width: 100vh;
+  }
+
+
+
+  .container {
+      display: flex;
+      justify-content: space-between;
+      background-color: #143f72;
+      margin-top: 30px;
+  }
+
+  .container2 {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .sin-nombre {
+      width: 50%;
   }
   
-  
-  a {
-      text-decoration: none;
+  .mi-nombre {
+      width: 50%;
+      color: white;
+  }
+
+  .informacion {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      color: #143f72;
+      margin-top: 30px;
+  }
+
+  .titulo-mi-nombre {
+      font-size: 40px;
+      letter-spacing: 3px;
   }
   
-  @media (min-width: 641px) {
-    .pc {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .mobil {
-        display: none;
-    }
-  
-    .pc-add-form {
-        display: flex;
-        flex-direction: column;
-        height: 1280px;
-    }
-  
-    .contenedor {
-        position: absolute;
-        margin: 0;
-        width: 100%;
-    }
-  
-    .contenedor2 {
-        position: absolute;
-        margin: 0;
-        width: 45%;
-        background-color: #386eae;
-        margin-left: 20px;
-    }
-  
-    .contenedor3 {
-        width: 100%;
-    }
-  
-    .formulario {
-        display: flex;
-        flex-direction: column;
-        width: 100vh;
-    }
-  
-  
-  
-    .container {
-        display: flex;
-        justify-content: space-between;
-        background-color: #143f72;
-        margin-top: 30px;
-    }
-  
-    .container2 {
-        display: flex;
-        justify-content: space-between;
-    }
-  
-    .sin-nombre {
-        width: 50%;
-    }
-    
-    .mi-nombre {
-        width: 50%;
-        color: white;
-    }
-  
-    .informacion {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        color: #143f72;
-        margin-top: 30px;
-    }
-  
-    .titulo-mi-nombre {
-        font-size: 40px;
-        letter-spacing: 3px;
-    }
-    
-    .subtitulo-mi-nombre {
-        font-size: 25px;
-        letter-spacing: 3px;
-        font-weight: 100;
-        margin-top: -10px;
-    }
-  
-  
-  
-    /** section 2 de vista pc */
-    .cuadro-imagen {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 290px;
-        margin-top: 25px;
-    }
-  
-    img {
-        width: 100%;
-        height: 60vh;
-    }
-  
-    .circulo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80%;
-        width: 80%;
-        border: 6px solid white;
-        border-radius: 100%;
-        background-color: #526d82;
-        overflow: hidden;
-    }
-  
-    .cuadro-info {
-        border: 1px solid #386eae;
-        border-bottom: 3px solid white;
-        margin-bottom: 15px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 30px;
-    }
-  
-    .subtitulo {
-        font-size: 30px;
-        color: white;
-        font-weight: 500;
-        letter-spacing: 3px;
-        margin-bottom: 15px;
-    }
-  
-    .info-comunicarse {
-        margin-left: 20px;
-        margin-top: 15px;
-    }
-  
-    .estilo-subcuadro-contacto {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-  
-    .circulo-iconos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background-color: white;
-    }
-  
-    .iconos {
-        color: #143f72;
-        font-size: 20px;
-        font-weight: 700;
-    }
-  
-    .info-icono, a {
-        margin-left: 10px;
-        color: white;
-        font-size: 20px;
-        font-weight: 200;
-    }
-  
-    .habilidades {
-        margin-top: 10px;
-    }
-  
-    .habilidades li {
-        color: white;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
-        font-size: 20px;
-        font-weight: 100;
-    }
-  
-    .educacion {
-        color: white;
-    }
-  
-    .educacion li {
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-  
-    .educacion div {
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-  
+  .subtitulo-mi-nombre {
+      font-size: 25px;
+      letter-spacing: 3px;
+      font-weight: 100;
+      margin-top: -10px;
+  }
+
+
+
+  /** section 2 de vista pc */
+  .cuadro-imagen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 290px;
+      margin-top: 25px;
+  }
+
+  img {
+      width: 100%;
+      height: 60vh;
+  }
+
+  .circulo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      width: 80%;
+      border: 6px solid white;
+      border-radius: 100%;
+      background-color: #526d82;
+      overflow: hidden;
+  }
+
+  .cuadro-info {
+      border: 1px solid #386eae;
+      border-bottom: 3px solid white;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 30px;
+  }
+
+  .subtitulo {
+      font-size: 30px;
+      color: white;
+      font-weight: 500;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+  }
+
+  .info-comunicarse {
+      margin-left: 20px;
+      margin-top: 15px;
+  }
+
+  .estilo-subcuadro-contacto {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+
+  .circulo-iconos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      background-color: white;
+  }
+
+  .iconos {
+      color: #143f72;
+      font-size: 20px;
+      font-weight: 700;
+  }
+
+  .info-icono, a {
+      margin-left: 10px;
+      color: white;
+      font-size: 20px;
+      font-weight: 200;
+  }
+
+  .habilidades {
+      margin-top: 10px;
+  }
+
+  .habilidades li {
+      color: white;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      font-size: 20px;
+      font-weight: 100;
+  }
+
+  .educacion {
+      color: white;
+  }
+
+  .educacion li {
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+  }
+
+  .educacion div {
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .pc {
+      display: none;
+  }
+
+  .mobil {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .formulario {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .contenedor20 {
+      background-color: #386eae;
+      padding: 10px;
+  }
+
+  .cuadro-imagen {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 290px;
+  }
+
+  img {
+      width: 100%;
+      height: 60vh;
+  }
+
+  .circulo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      width: 80%;
+      border: 4px solid white;
+      border-radius: 100%;
+      background-color: #526d82;
+      overflow: hidden;
+  }
+
+  .mi-nombre {
+      border-bottom: 3px solid white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      color: white;
+  }
+
+  .titulo-mi-nombre {
+      font-size: 30px;
+      letter-spacing: 3px;
   }
   
-  @media (max-width: 640px) {
-    .pc {
-        display: none;
-    }
-  
-    .mobil {
-        display: flex;
-        flex-direction: column;
-    }
-  
-    .formulario {
-        display: flex;
-        flex-direction: column;
-    }
-  
-    .contenedor20 {
-        background-color: #386eae;
-        padding: 10px;
-    }
-  
-    .cuadro-imagen {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 290px;
-    }
-  
-    img {
-        width: 100%;
-        height: 60vh;
-    }
-  
-    .circulo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80%;
-        width: 80%;
-        border: 4px solid white;
-        border-radius: 100%;
-        background-color: #526d82;
-        overflow: hidden;
-    }
-  
-    .mi-nombre {
-        border-bottom: 3px solid white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        color: white;
-    }
-  
-    .titulo-mi-nombre {
-        font-size: 30px;
-        letter-spacing: 3px;
-    }
-    
-    .subtitulo-mi-nombre {
-        font-size: 17px;
-        letter-spacing: 3px;
-        font-weight: 100;
-        margin-top: -10px;
-    }
-  
-    .cuadro-info {
-        border-bottom: 3px solid white;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        margin-top: 30px;
-    }
-  
-    .subtitulo {
-        font-size: 30px;
-        color: white;
-        font-weight: 500;
-        letter-spacing: 3px;
-        margin-bottom: 15px;
-    }
-  
-    .estilo-cuadro-contacto {
-        display: flex;
-        flex-direction: column;
-        list-style: none;        
-        padding-left: 20px;
-    }
-  
-    .estilo-subcuadro-contacto {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-  
-    .circulo-iconos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        background-color: white;
-    }
-  
-    .iconos {
-        color: #143f72;
-    }
-  
-    .info-icono, a {
-        margin-left: 10px;
-        color: white;
-        font-size: 15px;
-        font-weight: 200;
-    }
-  
-    .habilidades {
-        margin-top: -2px;
-    }
-  
-    .habilidades li {
-        color: white;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
-        font-size: 15px;
-    }
-  
-    .educacion {
-        color: white;
-    }
-  
-    .educacion li {
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
-  
-    .contenedor21 {
-        background-color: white;
-        padding: 5px;
-        padding-top: 10px;
-    }
-  
-    .informacion {
-        border-bottom: 3px solid white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        color: #143f72;
-    }
-  
-    .cuadro-info2 {
-        border-bottom: 3px solid #143f72;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        margin-bottom: 30px;
-    }
-  
-    .acerda-de-mi {
-        font-size: 20px;
-        color: #143f72;
-        font-weight: 700;
-        letter-spacing: 3px;
-        margin-bottom: 15px;
-    }
-  
-    .parrafo-acerca-de-mi {
-        text-align: justify;
-        text-indent: 20px;
-    }
-  
-    .cuadro-info3 {
-        border-left: 3px solid #143f72;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        margin-bottom: 30px;
-    }
-  
-    .circulo-azul {
-        display: flex;
-    }
-  
-    .circulo-azul-pequeño {
-        width: 20px;
-        height: 20px;
-        background-color: #143f72;
-        border-radius: 100%;
-        margin-left: -31px;
-        margin-right: 20px;
-    }
-  
-    .exp-laboral {
-        font-size: 20px;
-        color: #143f72;
-        font-weight: 700;
-        letter-spacing: 3px;
-        margin-bottom: 40px;
-        margin-left: -60px;
-    }
-  
-    .experiencia-laboral {
-        list-style: none;
-        margin-left: -20px;
-        margin-top: -10px;
-        margin-bottom: 40px;
-    }
-    .experiencia-laboral li {
-        margin-bottom: 10px;
-    }
+  .subtitulo-mi-nombre {
+      font-size: 17px;
+      letter-spacing: 3px;
+      font-weight: 100;
+      margin-top: -10px;
   }
-  
-  /*formulario*/
-  
-  form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #386eae;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  .cuadro-info {
+      border-bottom: 3px solid white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-top: 30px;
   }
-  
-  form div {
-    margin-bottom: 10px;
+
+  .subtitulo {
+      font-size: 30px;
+      color: white;
+      font-weight: 500;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
   }
-  
-  .rai {
-    display: block;
-    font-weight: bold;
+
+  .estilo-cuadro-contacto {
+      display: flex;
+      flex-direction: column;
+      list-style: none;        
+      padding-left: 20px;
   }
-  
-  .plo,
-  textarea {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+
+  .estilo-subcuadro-contacto {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
   }
-  
-  .btn-enviar {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
+
+  .circulo-iconos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      background-color: white;
   }
-  
-  button:hover {
-    background-color: #45a049;
+
+  .iconos {
+      color: #143f72;
   }
-  
+
+  .info-icono, a {
+      margin-left: 10px;
+      color: white;
+      font-size: 15px;
+      font-weight: 200;
+  }
+
+  .habilidades {
+      margin-top: -2px;
+  }
+
+  .habilidades li {
+      color: white;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      font-size: 15px;
+  }
+
+  .educacion {
+      color: white;
+  }
+
+  .educacion li {
+      font-weight: 600;
+      letter-spacing: 1px;
+  }
+
+  .contenedor21 {
+      background-color: white;
+      padding: 5px;
+      padding-top: 10px;
+  }
+
+  .informacion {
+      border-bottom: 3px solid white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      color: #143f72;
+  }
+
+  .cuadro-info2 {
+      border-bottom: 3px solid #143f72;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .acerda-de-mi {
+      font-size: 20px;
+      color: #143f72;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+  }
+
+  .parrafo-acerca-de-mi {
+      text-align: justify;
+      text-indent: 20px;
+  }
+
+  .cuadro-info3 {
+      border-left: 3px solid #143f72;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .circulo-azul {
+      display: flex;
+  }
+
+  .circulo-azul-pequeño {
+      width: 20px;
+      height: 20px;
+      background-color: #143f72;
+      border-radius: 100%;
+      margin-left: -31px;
+      margin-right: 20px;
+  }
+
+  .exp-laboral {
+      font-size: 20px;
+      color: #143f72;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 40px;
+      margin-left: -60px;
+  }
+
+  .experiencia-laboral {
+      list-style: none;
+      margin-left: -20px;
+      margin-top: -10px;
+      margin-bottom: 40px;
+  }
+  .experiencia-laboral li {
+      margin-bottom: 10px;
+  }
+}
+
+/*formulario*/
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #386eae;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+.rai {
+  display: block;
+  font-weight: bold;
+}
+
+.plo,
+textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.bto {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button:hover {
+  background-color: #45a049;
+}
