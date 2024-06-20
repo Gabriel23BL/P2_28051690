@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -182,22 +182,6 @@
             id=""
           ></textarea>
           <br /><br />
-
-          <label class="rai" for="">Clave</label><br />
-          <input
-            class="plo"
-            placeholder="****************"
-            type="password"
-            name="clave"
-          /><br />
-
-          <label class="rai" for="">Confirmar Clave</label><br />
-          <input
-            class="plo"
-            placeholder="****************"
-            type="password"
-            name="clave2"
-          /><br />
           
           <div
             class="g-recaptcha"
@@ -205,8 +189,9 @@
           ></div>
           <br />
           <div style="margin-bottom: 10px;" id="msj"></div>
-          <button class="bto">Enviar</button>
+          <button type="submit" name="enviar" value="Enviar Datos" class="btn-enviar">Enviar</button>
         </form>
+        <a href="/auth/login" class="btn-login">Tabla De Contactos</a>
       </div>
     </div>
 
@@ -360,20 +345,6 @@
               name="comentario"
               id=""
             ></textarea>
-            <label class="rai" for="">Clave</label><br />
-            <input
-              class="plo"
-              placeholder="****************"
-              type="password"
-              name="clave"
-            /><br />
-  
-            <label class="rai" for="">Confirmar Clave</label><br />
-            <input
-              class="plo"
-              placeholder="****************"
-              type="password"
-              name="clave2"/>
             <br/><br />
             <div
               class="g-recaptcha"
@@ -381,10 +352,12 @@
             ></div>
             <br />
             <div style="margin-bottom: 10px;" id="msj"></div>
-            <button class="bto">Enviar</button>
+            <button type="submit" name="enviar" value="Enviar Datos" class="btn-enviar">Enviar</button>
           </form>
-        </div>
-      </section>
-    </div>
+        <a href="/auth/login" class="btn-login">Tabla De Contactos</a>
+      </div>
+  </section>
+  <script src="/javascripts/captcha.js"></script>
+  <script src="../app.js"></script>
   </body>
 </html>

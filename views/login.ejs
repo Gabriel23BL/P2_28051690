@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+</head>
+<body>
+  <div class="login">
+    <h1>Login</h1>
+    <form action="/auth/login" method="POST">
+      <div class="usuario">
+        <input type="text" name="username" id="username" autocomplete="off" required>
+        <label for="username">Nombre de Usuario:</label>
+      </div>
+      <div class="usuario">
+        <input type="password" name="password" id="password" autocomplete="off" required>
+        <label for="password">Contraseña:</label>
+      </div>
+      <button type="submit" class="btn-enviar">Ingresar</button>
+      <div class="google">
+        <p>Tambien puedes ingresar con Google:</p>
+      </div>
+    </form>
+    <a href="/auth/google"><button class="btn-enviar">Google</button></a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Usuarios Registrados</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/tabla.css">
+</head>
+<body>
+    <h1>Tabla de Usuarios Registrados</h1>
+    <table border="1">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Mensaje</th>
+            <th>IP</th>
+            <th>Fecha</th>
+            <th>País</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(function(row) { %>
+            <tr>
+              <td><%= row.email %></td>
+              <td><%= row.nombre %></td>
+              <td><%= row.mensaje %></td>
+              <td><%= row.ip %></td>
+              <td><%= row.fecha %></td>
+              <td><%= row.pais %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+</body>
+</html>
