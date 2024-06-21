@@ -1,54 +1,51 @@
 
-
-require('dotenv').config();
 const ContactosModel = require('./ContactosModel');
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 class ContactosController {
   constructor() {
     this.model = new ContactosModel();
-    try {
-      this.model.connect();
-    } catch (err) {
-      console.error('Error connecting to model:', err);
-    }
+    this.model.connect();
   }
 
   async add(req, res) {
-    try {
-      const { correo, nombre, comentario } = req.body;
-      if (!correo || !nombre || !comentario) {
-        return res.status(400).send({ error: 'Missing required fields' });
-      }
+    const correo = req.body.correo;
+    const nombre = req.body.nombre;
+    const comentario = req.body.comentario;
+    console.log(req.body);
 
-      const ip = req.headers['x-forwarded-for'] ?.split(',').shift() || req.socket?.remoteAddress;
-      const url = 'http://ipwho.is/' + ip;
-      const response = await fetch(url);
-      const json = await response.json();
-      const pais = json.country;
+    /* Ip address */
+    const ip = req.headers['x-forwarded-for']?.split(',').shift() || req.socket?.remoteAddress;
+    const url = 'http://ipwho.is/' + ip;
+    const response = await fetch(url);
+    const json = await response.json();
+    const pais = json.country;
 
-      const responseGoogle = req.body["g-recaptcha-response"];
-      const secretGoogle ='6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq';
-      const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
-      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
-      const google_response_result = await RecaptchaGoogle.json();
+    const responseGoogle = req.body["g-recaptcha-response"];
+    const secretGoogle = '6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq';
+    const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
+    const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
+    const google_response_result = await RecaptchaGoogle.json();
+    console.log(google_response_result);
 
-      if (!google_response_result.success) {
-        return res.status(400).send({ error: 'Invalid Recaptcha response' });
-      }
-
-      const hoy = new Date();
-      const horas = hoy.getHours();
-      const minutos = hoy.getMinutes();
-      const hora = horas + ':' + minutos;
-      const fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear() + '' + '/' + '' + hora;
+    if (google_response_result.success === true) {
+      /* Fecha y hora */
+      let hoy = new Date();
+      let horas = hoy.getHours();
+      let minutos = hoy.getMinutes();
+      let hora = horas + ':' + minutos;
+      let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear() + '' + '/' + '' + hora;
 
       let transporter = nodemailer.createTransport({
         host: "smtp-mail.outlook.com",
         secureConnection: false,
         port: 587,
         tls: {
-          ciphers: 'SSLv3'
+          ciphers: 'SSLv3',
+          rejectUnauthorized: false // Agregué esta línea para omitir la verificación de SSL/TLS
         },
         auth: {
           user: process.env.EMAIL,
@@ -63,7 +60,7 @@ class ContactosController {
         <p>Comentario: ${comentario}</p>
         <p>Fecha: ${fecha}</p>
         <p>IP: ${ip}</p>
-        <pli>Pais: ${pais}</p>
+        <p>Pais: ${pais}</p>
       `;
 
       const receiver = {
@@ -78,14 +75,13 @@ class ContactosController {
         this.model.save(correo, nombre, comentario, ip, fecha, pais);
         res.send({ request: 'Formulario enviado' });
       } catch (err) {
-        console.error('Error sending email:', err);
-        res.status(500).send({ error: 'Error sending email' });
+        console.error('Error enviando correo electrónico:', err);
+        res.status(500).send({ error: 'Error enviando correo electrónico' });
       }
-    } catch (err) {
-      console.error('Error processing request:', err);
-      res.status(500).send({ error: 'Error processing request' });
+    } else {
+      res.send({ request: 'Verifica el captcha para avanzar' });
     }
   }
 }
 
-module.exports = ContactosController
+module.exports = ContactosController;
