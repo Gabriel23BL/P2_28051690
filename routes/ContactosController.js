@@ -2,7 +2,6 @@
 const ContactosModel = require('./ContactosModel');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const recaptcha = require('recaptcha-v2');
 
 dotenv.config();
 
@@ -25,26 +24,12 @@ class ContactosController {
     const json = await response.json();
     const pais = json.country;
 
-    const ContactosController = {
-      add: async (req, res) => {
-      const responseGoogle = req.body["g-recaptcha-response"];
-       const secretGoogle = '6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq';
-       try {
-        const response = await recaptcha.verify(recaptchaResponse, secretKey);
-        if (!response.success) {
-          return res.status(400).json({ error: 'ReCaptcha inválido' });
-        }
-      } catch (error) {
-        console.error(error);
-        return res.status(500).json({ error: 'Error interno del servidor' });
-      }
-  
-
-      // Procesar la solicitud
-       const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
-       const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
-       const google_response_result = await RecaptchaGoogle.json();
-       console.log(google_response_result);
+    const responseGoogle = req.body["g-recaptcha-response"];
+    const secretGoogle = '6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq';
+    const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
+    const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
+    const google_response_result = await RecaptchaGoogle.json();
+    console.log(google_response_result);
 
     if (google_response_result.success === true) {
       /* Fecha y hora */
@@ -104,6 +89,5 @@ class ContactosController {
     }
   }
 }
-}
-};
+
 module.exports = ContactosController;
