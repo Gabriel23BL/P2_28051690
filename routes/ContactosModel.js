@@ -14,7 +14,7 @@ class ContactosModel {
   }
 
   connect() {
-    this.db.run('CREATE TABLE IF NOT EXISTS contactos(correo VARCHAR(50), nombre VARCHAR(20), comentario TEXT,ip TEXT,fecha TEXT,pais TEXT)');
+    this.db.run('CREATE TABLE IF NOT EXISTS contactos(correo VARCHAR(255), nombre VARCHAR(255), comentario TEXT,ip TEXT,fecha TEXT,pais TEXT)');
   }
 
   save(correo, nombre, comentario, ip, fecha, pais) {
