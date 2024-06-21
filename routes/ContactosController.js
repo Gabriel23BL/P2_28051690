@@ -40,18 +40,24 @@ class ContactosController {
       let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear() + '' + '/' + '' + hora;
 
       let transporter = nodemailer.createTransport({
-        host: "smtp-mail.outlook.com",
-        secureConnection: false,
-        port: 587,
-        tls: {
-          ciphers: 'SSLv3',
-          rejectUnauthorized: false // Agregué esta línea para omitir la verificación de SSL/TLS
-        },
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        secure: process.env.EMAIL_SECURE,
         auth: {
-          user: process.env.EMAIL,
-          pass: process.env.PASSWORD
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD
         }
-      });
+    });
+    
+    if (email.includes('@outlook.com')) {
+        process.env.EMAIL_HOST = 'smtp-mail.outlook.com';
+        process.env.EMAIL_PORT = 587;
+        process.env.EMAIL_SECURE = false;
+    } else if (email.includes('@gmail.com')) {
+        process.env.EMAIL_HOST = 'smtp.gmail.com';
+        process.env.EMAIL_PORT = 587;
+        process.env.EMAIL_SECURE = false;
+    }
 
       const customer = `
         <h2>Información del Cliente</h2>
