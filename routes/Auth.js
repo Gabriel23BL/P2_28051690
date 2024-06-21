@@ -13,8 +13,8 @@ exports.Passport = () => {
     });
 
     passport.use(new GitHubStrategy({
-        clientID: 627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com,
-        clientSecret: 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,
+        clientID: '627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com',
+        clientSecret: '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',
         callbackURL: "https://p2-28051690.onrender.com/github/callback",
       },
         function (accessToken, refreshToken, profile, cb) {
