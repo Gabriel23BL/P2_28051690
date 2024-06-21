@@ -5,32 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login-P2_28051690</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+    </style>
 </head>
-<style>
-    body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-</style>
 <body>
     <main>
         <form method="POST" action="/login">
-            <div class="mb-3">
-              <h1>Inicia Tu Sesion</h1>
-              <label for="exampleInputEmail1" class="form-label">Correo</label>
-              <input placeholder="ejemplo@ejemplo.com" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <h1>Bienvenido Al Login</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Correo</label>
+                <input placeholder="ejemplo@ejemplo.com" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input placeholder="********" type="password" class="form-control" id="exampleInputPassword1" name="password">
+            <div class="form-group">
+                <label for="exampleInputPassword1">Contraseña</label>
+                <input placeholder="********" type="password" class="form-control" id="exampleInputPassword1" name="password" required>
             </div>
-            <div class="mb-3">
-                <a href="/github">Iniciar secion con Github</a>
-              </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+            <div class="form-group text-center">
+                <a href="/github">Iniciar sesión con GitHub</a>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </div>
+        </form>
     </main>
 </body>
 </html>
