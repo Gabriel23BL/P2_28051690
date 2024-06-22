@@ -446,7 +446,10 @@ textarea {
   border-radius: 4px;
   resize: vertical;
 }
+.plo:hover{
+        border-color: #1ffa17;
 
+}
 .bto {
   background-color: #4CAF50;
   color: white;
@@ -460,3 +463,87 @@ textarea {
 button:hover {
   background-color: #45a049;
 }
+/*Login*/
+        body {
+            background-color: #ece2e2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+       
+        
+        .prime-form {
+            max-width: 400px;
+             margin: 0 auto;
+             background-color: #386eae;
+            padding: 60px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .prime-form {
+             max-width: 400px;
+             margin: 0 auto;
+             background-color: #386eae;
+             padding: 60px;
+             border-radius: 5px;
+             box-shadow: 0 2px 5px rgba(74, 238, 9, 0.863);
+        }
+        .hiper{
+            color: #9c00d9f5;
+
+        }
+        .hiper:hover {
+            color: #1ffa17;
+        }
+        
+
+        .bienv {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .formExplo {
+            margin-bottom: 15px;
+        }
+        
+        .formExplo label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .control {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        .inp1:hover {
+            
+            border-color: #1ffa17;
+
+        }
+        
+        .formF {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .btnLogin {
+            background-color: #4CAF50;
+            border-color: #31d636;
+        }
+        
+        .btnLogin:hover {
+            background-color: #67d30e;
+            border-color: #1ffa17;
+        }
+        
+        .centrar {
+            text-align: center;
+        }
