@@ -464,6 +464,7 @@ button:hover {
   background-color: #45a049;
 }
 /*Login*/
+
         body {
             background-color: #ece2e2;
             display: flex;
@@ -521,6 +522,12 @@ button:hover {
             font-size: 14px;
             border-radius: 10px;
             border: 1px solid #ddd;
+        }
+        
+        .inp1:hover {
+            
+            border-color: #1ffa17;
+
         }
         
         .formF {
