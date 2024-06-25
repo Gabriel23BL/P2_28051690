@@ -67,9 +67,9 @@ exports.protectRouteLogOut = async (req, res, next) => {
 };
 
 exports.login = async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    if (email == process.env.EMAILUSERSECRET && password == process.env.PASSWORDUSERSECRET) {
+const email = "ejemplo@ejemplo.com";
+    const password = "p-28051690";
+    if (email == "ejemplo@ejemplo.com" && password == "p-280516902") {
         const id = process.env.SECRET;
         const token = jwt.sign({ id: id }, process.env.JWTSECRET, { expiresIn: '1h' });
         res.cookie("jwt", token);
