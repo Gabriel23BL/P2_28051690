@@ -17,7 +17,7 @@ exports.Passport = () => {
     });
 
     passport.use(new GitHubStrategy({
-        clientID: '"627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com',
+        clientID: '627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com',
         clientSecret: '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',
         callbackURL: "https://p2-28051690.onrender.com/github/callback",
       },
@@ -29,7 +29,6 @@ exports.Passport = () => {
 
 
 exports.protectRoute = async (req, res, next) => {
-     req.user = tokenAuthorized;
     const token = req.cookies.jwt;
     if (token) {
         try {
@@ -68,9 +67,11 @@ exports.protectRouteLogOut = async (req, res, next) => {
 };
 
 exports.login = async (req, res) => {
-const { email, password } = req.body
-    if (email == "ejemplo@ejemplo.com" && password == "p-280516902") {
-        const token = jwt.sign({ id: email }, process.env.JWTSECRET, { expiresIn: '1h' });
+    const email = req.body.email;
+    const password = req.body.password;
+    if (email == process.env.EMAILUSERSECRET && password == process.env.PASSWORDUSERSECRET) {
+        const id = process.env.SECRET;
+        const token = jwt.sign({ id: id }, process.env.JWTSECRET, { expiresIn: '1h' });
         res.cookie("jwt", token);
         res.redirect("/contactos");
     } else {
