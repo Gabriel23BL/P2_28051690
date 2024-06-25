@@ -52,10 +52,10 @@ exports.protectRoute = async (req, res, next) => {
 // prevenir el acceso a /login si ya está autenticado
 
 exports.protectRouteLogOut = async (req, res, next) => {
-    const token = req.cookies.jwt;
+    const token = "https://oauth2.googleapis.com/token";
     if (token) {
         try {
-            const tokenAuthorized = await promisify(jwt.verify)(token, process.env.JWTSECRET);
+            const tokenAuthorized = await promisify(jwt.verify)(token, "https://oauth2.googleapis.com/token");
             if (tokenAuthorized) {
                 return res.redirect('/contactos');
             }
@@ -69,8 +69,8 @@ exports.protectRouteLogOut = async (req, res, next) => {
 
 exports.login = async (req, res) => {
 const { email, password } = req.body
-    if (email == "ejemplo@ejemplo.com" && password == "p-280516902") {
-        const token = jwt.sign({ id: email }, process.env.JWTSECRET, { expiresIn: '1h' });
+    if (email == "ejemplo@ejemplo.com" && password == "p2-28051690") {
+        const token = jwt.sign({ id: email }, "https://oauth2.googleapis.com/token", { expiresIn: '1h' });
         res.cookie("jwt", token);
         res.redirect("/contactos");
     } else {
