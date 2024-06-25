@@ -6,13 +6,11 @@ const nodemailer = require('nodemailer');
 
 
 class ContactosController {
-    constructor() {
+     constructor() {
       this.model = new ContactosModel();
       this.model.connect();
-
-      
-  
     }
+    
     async add(req, res) {
       const correo = req.body.correo;
       const nombre = req.body.nombre;
@@ -30,7 +28,7 @@ class ContactosController {
       const responseGoogle = req.body["g-recaptcha-response"];
       const secretGoogle = "6LejXgEqAAAAAIMSJE3qzJmKSTa4H-KD57QOCATO";
       const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
-      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
+      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post" });
       const google_response_result = await RecaptchaGoogle.json();
       console.log(google_response_result)
       if (google_response_result.success == true) {
@@ -38,6 +36,7 @@ class ContactosController {
   
         let hoy = new Date();
         let horas = hoy.getHours();
+
         let minutos = hoy.getMinutes();
         let hora = horas + ':' + minutos;
         let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear() + '' + '/' + '' + hora;
@@ -98,5 +97,4 @@ class ContactosController {
   
     }
   }
-
 module.exports = ContactosController
