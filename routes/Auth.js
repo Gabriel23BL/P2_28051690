@@ -29,13 +29,12 @@ exports.Passport = () => {
 
 
 exports.protectRoute = async (req, res, next) => {
-     req.user = tokenAuthorized;
     const token = req.cookies.jwt;
     if (token) {
         try {
             const tokenAuthorized = await promisify(jwt.verify)(token, process.env.JWTSECRET);
             if (tokenAuthorized) {
-                req.user = process.env.SECRET;
+                req.user = tokenAuthorized;
                 return next();
             }
         } catch (error) {
