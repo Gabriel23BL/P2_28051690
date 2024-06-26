@@ -33,31 +33,24 @@ class ContactosController {
       if (google_response_result.success == true) {
         /*Fecha y hora*/
   
-        let hoy = new Date();
+         let hoy = new Date();
         let horas = hoy.getHours();
         let minutos = hoy.getMinutes();
         let hora = horas + ':' + minutos;
         let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear() + '' + '/' + '' + hora;
   
         let transporter = nodemailer.createTransport({
-          host: process.env.EMAIL_HOST,
-          port: process.env.EMAIL_PORT,
-          secure: process.env.EMAIL_SECURE,
+          host: "smtp-mail.outlook.com",
+          secureConnection: false,
+          port: 587,
+          tls: {
+            ciphers: 'SSLv3'
+          },
           auth: {
-              user: process.env.EMAIL_USER,
-              pass: process.env.EMAIL_PASSWORD
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
           }
-      });
-      
-      if (email.includes('@outlook.com')) {
-          process.env.EMAIL_HOST = 'smtp-mail.outlook.com';
-          process.env.EMAIL_PORT = 587;
-          process.env.EMAIL_SECURE = false;
-      } else if (email.includes('@gmail.com')) {
-          process.env.EMAIL_HOST = 'smtp.gmail.com';
-          process.env.EMAIL_PORT = 587;
-          process.env.EMAIL_SECURE = false;
-      }
+        });
   
         const customer = `
                             <h2>Información del Cliente</h2>
