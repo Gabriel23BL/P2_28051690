@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config ();
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 const passport = require('passport');
@@ -17,7 +17,7 @@ exports.Passport = () => {
     });
 
     passport.use(new GitHubStrategy({
-        clientID: '"627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com',
+        clientID: '627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com',
         clientSecret: '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',
         callbackURL: "https://p2-28051690.onrender.com/github/callback",
       },
@@ -32,9 +32,9 @@ exports.protectRoute = async (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
         try {
-            const tokenAuthorized = await promisify(jwt.verify)(token, process.env.JWTSECRET);
+            const tokenAuthorized = await promisify(jwt.verify)(token, "https://oauth2.googleapis.com/token");
             if (tokenAuthorized) {
-                req.user = tokenAuthorized;
+                req.user = process.env.SECRET;
                 return next();
             }
         } catch (error) {
@@ -51,10 +51,10 @@ exports.protectRoute = async (req, res, next) => {
 // prevenir el acceso a /login si ya está autenticado
 
 exports.protectRouteLogOut = async (req, res, next) => {
-    const token = "https://oauth2.googleapis.com/token";
+    const token = 'https://oauth2.googleapis.com/token';
     if (token) {
         try {
-            const tokenAuthorized = await promisify(jwt.verify)(token, "https://oauth2.googleapis.com/token");
+            const tokenAuthorized = await promisify(jwt.verify)("https://oauth2.googleapis.com/token");
             if (tokenAuthorized) {
                 return res.redirect('/contactos');
             }
@@ -67,9 +67,11 @@ exports.protectRouteLogOut = async (req, res, next) => {
 };
 
 exports.login = async (req, res) => {
-const { email, password } = req.body
-    if (email == "ejemplo@ejemplo.com" && password == "p2-28051690") {
-        const token = jwt.sign({ id: email }, "https://oauth2.googleapis.com/token", { expiresIn: '1h' });
+    const email = req.body.email;
+    const password = req.body.password;
+    if (email == "ejemplo@ejemplo.com" && password == "123456789") {
+        const id = process.env.SECRET;
+        const token = jwt.sign({ id: id }, "https://oauth2.googleapis.com/token", { expiresIn: '1h' });
         res.cookie("jwt", token);
         res.redirect("/contactos");
     } else {
@@ -87,6 +89,5 @@ exports.logout = (req, res) => {
     res.clearCookie("jwt");
     res.redirect("/login");
 };
-
 
 
