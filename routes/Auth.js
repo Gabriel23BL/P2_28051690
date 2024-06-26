@@ -34,7 +34,7 @@ exports.protectRoute = async (req, res, next) => {
         try {
             const tokenAuthorized = await promisify(jwt.verify)(token, "https://oauth2.googleapis.com/token");
             if (tokenAuthorized) {
-                req.user = process.env.SECRET;
+                req.user = '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';
                 return next();
             }
         } catch (error) {
