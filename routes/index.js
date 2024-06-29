@@ -13,7 +13,7 @@ router.get('https://github.com/', passport.authenticate('github'));
 router.get('https://p2-28051690.onrender.com/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
     const id = 'Iv23liB2EQ1hRyVqOmV2';
-    const token = jwt.sign({ id: id }, 'c4dff76fb29552ed04a30abcec16c1408f19cc77');
+    const token = jwt.sign({ id: id }, 'https://github.com/login/oauth/authorize');
     res.cookie("jwt", token);
     res.redirect('/contactos');
   });
