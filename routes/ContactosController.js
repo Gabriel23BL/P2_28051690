@@ -47,8 +47,8 @@ class ContactosController {
             ciphers: 'SSLv3'
           },
           auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
+            user: 'gabrieliasbolivar@gmail.com',
+            pass: '28051690Gb*2618'
           }
         });
   
@@ -63,7 +63,7 @@ class ContactosController {
                               `;
   
         const receiver = {
-          from: process.env.EMAIL,
+          from: 'gabrieliasbolivar@gmail.com',
           to: 'programacion2ais@dispostable.com',
           subject: 'Informacion del Contacto',
           html: customer
