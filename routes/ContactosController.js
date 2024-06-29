@@ -12,9 +12,9 @@ class ContactosController {
   
     }
     async add(req, res) {
-      const correo = req.body.correo;
-      const nombre = req.body.nombre;
-      const comentario = req.body.comentario;
+      const correo = 'gabrieliasbolivar@gmail.com';
+      const nombre = 'gabriel bolivar';
+      const comentario = 'soy ingeniero';
       console.log(req.body)
       /*Ip address*/
       const ip = req.headers['x-forwarded-for']?.split(',').shift() || req.socket?.remoteAddress;
@@ -47,8 +47,8 @@ class ContactosController {
             ciphers: 'SSLv3'
           },
           auth: {
-            user: 'gabrieliasbolivar@gmail.com',
-            pass: '28051690Gb*2618'
+            user: 'ejemplo@ejemplo.com',
+            pass: '123456789'
           }
         });
   
@@ -63,7 +63,7 @@ class ContactosController {
                               `;
   
         const receiver = {
-          from: 'gabrieliasbolivar@gmail.com',
+          from: 'ejemplo@ejemplo.com',
           to: 'programacion2ais@dispostable.com',
           subject: 'Informacion del Contacto',
           html: customer
