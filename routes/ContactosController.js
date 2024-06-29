@@ -26,14 +26,15 @@ class ContactosController {
   
       const responseGoogle = req.body["g-recaptcha-response"];
       const secretGoogle = "6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq";
-      const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
-      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
+      const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${encodeURIComponent(responseGoogle)}`;
+      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post" });
       const google_response_result = await RecaptchaGoogle.json();
+
       console.log(google_response_result)
       if (google_response_result.success == true) {
         /*Fecha y hora*/
   
-         let hoy = new Date();
+        let hoy = new Date();
         let horas = hoy.getHours();
         let minutos = hoy.getMinutes();
         let hora = horas + ':' + minutos;
