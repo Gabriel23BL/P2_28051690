@@ -1,57 +1,60 @@
-require('dotenv').config();
+require('dotenv').config ();
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 
-exports.Passport = () => {
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
-  });
-  passport.deserializeUser((user, done) => {
-    done(null, user);
-  });
 
-  passport.use(
-    new GitHubStrategy(
-      {
-        clientID: 'Ov23liLB16rsl5rkOzda',
-        clientSecret: 'ef3124604e6a2ae8473c6b4c0a971baa88daaef5B',
-        callbackURL: 'https://p2-28051690.onrender.com/github/callback',
+
+// proteger rutas
+
+exports.Passport = () => {
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+    });
+    passport.deserializeUser((user, done) => {
+        done(null, user);
+    });
+
+    passport.use(new GitHubStrategy({
+        clientID: '627081051338-nalj096im618i000j7ua3dekvvpiiq9e.apps.googleusercontent.com',
+        clientSecret: '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',
+        callbackURL: "https://p2-28051690.onrender.com/github/callback",
       },
-      function (accessToken, refreshToken, profile, cb) {
-        return cb(null, profile);
-      }
-    )
-  );
-};
+        function (accessToken, refreshToken, profile, cb) {
+          return cb(null, profile);
+        }
+      ));
+}
+
 
 exports.protectRoute = async (req, res, next) => {
-  const token = req.cookies.jwt;
-  if (token) {
-    try {
-      const tokenAuthorized = await promisify(jwt.verify)(
-        token,
-        "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"
-      );
-      if (tokenAuthorized) {
-        req.user = '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';
-        return next();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  res.redirect("/login");
-};
-
-// Middleware para prevenir el acceso a /login si ya está autenticado
-exports.protectRouteLogOut = async (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
         try {
-            const tokenAuthorized = await promisify(jwt.verify)(token, process.env.JWTSECRET);
+            const tokenAuthorized = await promisify(jwt.verify)(token, "https://oauth2.googleapis.com/token");
+            if (tokenAuthorized) {
+                req.user = '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';
+                return next();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    res.redirect("/login");
+};
+
+
+
+
+// prevenir el acceso a /login si ya está autenticado
+
+exports.protectRouteLogOut = async (req, res, next) => {
+    const token = 'https://oauth2.googleapis.com/token';
+    if (token) {
+        try {
+            const tokenAuthorized = await promisify(jwt.verify)("https://oauth2.googleapis.com/token");
             if (tokenAuthorized) {
                 return res.redirect('/contactos');
             }
@@ -67,13 +70,13 @@ exports.login = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     if (email == "ejemplo@ejemplo.com" && password == "123456789") {
-        const id = email;
-        const token = jwt.sign({ id: id }, process.env.JWTSECRET, { expiresIn: '1h' });
+        const id = process.env.SECRET;
+        const token = jwt.sign({ id: id }, "https://oauth2.googleapis.com/token", { expiresIn: '1h' });
         res.cookie("jwt", token);
         res.redirect("/contactos");
     } else {
         res.send({
-            request: 'No existen sus credenciales para ingresar a la tabla contactos'
+            request: 'No existen sus credenciales para ingresar a los contactos.'
         })
     }
 
