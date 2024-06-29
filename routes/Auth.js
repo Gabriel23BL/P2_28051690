@@ -70,7 +70,7 @@ exports.login = async (req, res) => {
   const password = req.body.password;
   if (email == "ejemplo@ejemplo.com" && password == "123456789") {
     const id = 'Iv23liB2EQ1hRyVqOmV2';
-    const token = jwt.sign({ id: id }, "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", {
+    const token = jwt.sign({ id: id }, "c4dff76fb29552ed04a30abcec16c1408f19cc77", {
       expiresIn: '1h'
     });
     res.cookie("jwt", token);
