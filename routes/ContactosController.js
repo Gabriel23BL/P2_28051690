@@ -1,5 +1,3 @@
-
-
 require('dotenv').config();
 const ContactosModel = require('./ContactosModel');
 const nodemailer = require('nodemailer');
@@ -9,15 +7,17 @@ class ContactosController {
     constructor() {
       this.model = new ContactosModel();
       this.model.connect();
+
+      
+  
     }
     async add(req, res) {
       const correo = req.body.correo;
       const nombre = req.body.nombre;
       const comentario = req.body.comentario;
       console.log(req.body)
-      
       /*Ip address*/
-      const ip = req.headers ['x-forwarded-for'] ?.split(',').shift() || req.socket?.remoteAddress;
+      const ip = req.headers['x-forwarded-for']?.split(',').shift() || req.socket?.remoteAddress;
       const url = 'http://ipwho.is/' + ip;
       const response = await fetch(url);
       const json = await response.json();
@@ -33,7 +33,7 @@ class ContactosController {
       if (google_response_result.success == true) {
         /*Fecha y hora*/
   
-         let hoy = new Date();
+        let hoy = new Date();
         let horas = hoy.getHours();
         let minutos = hoy.getMinutes();
         let hora = horas + ':' + minutos;

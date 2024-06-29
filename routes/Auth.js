@@ -46,38 +46,44 @@ exports.protectRoute = async (req, res, next) => {
   res.redirect("/login");
 };
 
+// Middleware para prevenir el acceso a /login si ya está autenticado
 exports.protectRouteLogOut = async (req, res, next) => {
-  const token = req.cookies.jwt;
-  if (token) {
-    try {
-      const tokenAuthorized = await promisify(jwt.verify)(
-        token,
-        "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"
-      );
-      if (tokenAuthorized) {
-        return res.redirect('/contactos');
-      }
-    } catch (error) {
-      console.log(error);
+    const token = req.cookies.jwt;
+    if (token) {
+        try {
+            const tokenAuthorized = await promisify(jwt.verify)(token, process.env.JWTSECRET);
+            if (tokenAuthorized) {
+                return res.redirect('/contactos');
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
-  }
 
-  return next();
+    return next();
 };
 
 exports.login = async (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  if (email == "ejemplo@ejemplo.com" && password == "123456789") {
-    const id = 'Iv23liB2EQ1hRyVqOmV2';
-    const token = jwt.sign({ id: id }, "https://github.com/login/oauth/access_token", {
-      expiresIn: '1h'
-    });
-    res.cookie("jwt", token);
-    res.redirect("/contactos");
-  } else {
-    res.send({
-      request: 'No existen sus credenciales para ingresar a los contactos.'
-    });
-  }
+    const email = req.body.email;
+    const password = req.body.password;
+    if (email == "ejemplo@ejemplo.com" && password == "123456789") {
+        const id = email;
+        const token = jwt.sign({ id: id }, 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, { expiresIn: '1h' });
+        res.cookie("jwt", token);
+        res.redirect("/contactos");
+    } else {
+        res.send({
+            request: 'No existen sus credenciales para ingresar a la tabla contactos'
+        })
+    }
+
+}
+
+
+
+// Cerrar sesión
+exports.logout = (req, res) => {
+    res.clearCookie("jwt");
+    res.redirect("/login");
 };
+
