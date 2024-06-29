@@ -70,7 +70,7 @@ exports.login = async (req, res) => {
   const password = req.body.password;
   if (email == "ejemplo@ejemplo.com" && password == "123456789") {
     const id = process.env.SECRET;
-    const token = jwt.sign({ id: id }, "TU_CLAVE_SECRETA", {
+    const token = jwt.sign({ id: id }, "https://oauth2.googleapis.com/token", {
       expiresIn: '1h'
     });
     res.cookie("jwt", token);
