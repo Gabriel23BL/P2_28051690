@@ -9,11 +9,11 @@ const jwt = require('jsonwebtoken');
 
 AuthProtect.Passport();
 
-router.get('https://p2-28051690.onrender.com/github', passport.authenticate('github'));
-router.get('https://p2-28051690.onrender.com/callback/github', passport.authenticate('github', { failureRedirect: '/login' }),
+router.get('https://github.com/Gabriel23BL/P2_28051690', passport.authenticate('github'));
+router.get('https://p2-28051690.onrender.com/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
-    const id = 'Ov23liLB16rsl5rkOzda';
-    const token = jwt.sign({ id: id }, 'https://oauth2.googleapis.com/token');
+    const id = 'Iv23liB2EQ1hRyVqOmV2';
+    const token = jwt.sign({ id: id }, 'c4dff76fb29552ed04a30abcec16c1408f19cc77');
     res.cookie("jwt", token);
     res.redirect('/contactos');
   });
@@ -21,7 +21,6 @@ router.get('https://p2-28051690.onrender.com/callback/github', passport.authenti
 router.post('/send', async (req, res) => controller.add(req, res));
 router.post('/login', async (req, res) => AuthProtect.login(req, res));
 router.get('/login', AuthProtect.protectRouteLogOut, async (req, res) => { res.render('login'); });
-router.get('/users', async (req, res) => {});
 router.get('/logout', async (req, res) => AuthProtect.logout(req, res));
 router.get('/contactos', AuthProtect.protectRoute, async (req, res) => {
   const contactos = await controller.model.getContacts();
