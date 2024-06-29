@@ -12,10 +12,10 @@ AuthProtect.Passport();
 router.get('https://github.com/', passport.authenticate('github'));
 router.get('https://p2-28051690.onrender.com/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
-    const id = 'Iv23liB2EQ1hRyVqOmV2';
-    const token = jwt.sign({ id: id }, 'https://github.com/login/oauth/authorize');
+    const id = process.env.ID;
+    const token = jwt.sign({ id: id }, process.env.JWTSECRET);
     res.cookie("jwt", token);
-    res.redirect('/contactos');
+    res.redirect('/contactos')
   });
 
 router.post('/send', async (req, res) => controller.add(req, res));
