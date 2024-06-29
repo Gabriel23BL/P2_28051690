@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
     const password = req.body.password;
     if (email == "ejemplo@ejemplo.com" && password == "123456789") {
         const id = email;
-        const token = jwt.sign({ id: id }, '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', { expiresIn: '1h' });
+        const token = jwt.sign({ id: id }, process.env.JWTSECRET, { expiresIn: '1h' });
         res.cookie("jwt", token);
         res.redirect("/contactos");
     } else {
