@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 
 AuthProtect.Passport();
 
-router.get('https://github.com/Gabriel23BL/P2_28051690', passport.authenticate('github'));
+router.get('https://github.com/', passport.authenticate('github'));
 router.get('https://p2-28051690.onrender.com/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
     const id = 'Iv23liB2EQ1hRyVqOmV2';
