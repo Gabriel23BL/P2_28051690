@@ -32,7 +32,7 @@ exports.protectRoute = async (req, res, next) => {
     try {
       const tokenAuthorized = await promisify(jwt.verify)(
         token,
-        "https://oauth2.googleapis.com/token"
+        "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"
       );
       if (tokenAuthorized) {
         req.user = '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';
@@ -52,7 +52,7 @@ exports.protectRouteLogOut = async (req, res, next) => {
     try {
       const tokenAuthorized = await promisify(jwt.verify)(
         token,
-        "https://oauth2.googleapis.com/token"
+        "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"
       );
       if (tokenAuthorized) {
         return res.redirect('/contactos');
@@ -69,8 +69,8 @@ exports.login = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   if (email == "ejemplo@ejemplo.com" && password == "123456789") {
-    const id = process.env.SECRET;
-    const token = jwt.sign({ id: id }, "https://oauth2.googleapis.com/token", {
+    const id = 'Iv23liB2EQ1hRyVqOmV2';
+    const token = jwt.sign({ id: id }, "c4dff76fb29552ed04a30abcec16c1408f19cc77", {
       expiresIn: '1h'
     });
     res.cookie("jwt", token);
