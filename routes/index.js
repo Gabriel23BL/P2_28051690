@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken')
 
 
 AuthProtect.Passport();
-router.get('/github', passport.authenticate('github'));
+router.get('https://github.com/Gabriel23BL/P2_28051690/tree/main', passport.authenticate('github'));
 router.get('https://p2-28051690.onrender.com/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
     const id = process.env.ID;
@@ -22,6 +22,7 @@ router.get('https://p2-28051690.onrender.com/github/callback', passport.authenti
 router.post('/send', async (req, res) => controller.add(req, res));
 router.post('/login', async (req, res) => AuthProtect.login(req, res));
 router.get('/login', AuthProtect.protectRouteLogOut, async (req, res) => { res.render('login') });
+router.get('/users', async(req, res) => router.users(req, res) );
 router.get('/logout', async (req, res) => AuthProtect.logout(req, res))
 router.get('/contactos', AuthProtect.protectRoute, async (req, res) => {
   const contactos = await controller.model.getContacts();
