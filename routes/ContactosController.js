@@ -26,15 +26,14 @@ class ContactosController {
   
       const responseGoogle = req.body["g-recaptcha-response"];
       const secretGoogle = "6LdaS-8pAAAAALc4U8_4sCBm5jjhkYDw2-THUaqq";
-      const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${encodeURIComponent(responseGoogle)}`;
-      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post" });
+      const urlGoogle = `https://www.google.com/recaptcha/api/siteverify?secret=${secretGoogle}&response=${responseGoogle}`;
+      const RecaptchaGoogle = await fetch(urlGoogle, { method: "post", });
       const google_response_result = await RecaptchaGoogle.json();
-
       console.log(google_response_result)
       if (google_response_result.success == true) {
         /*Fecha y hora*/
   
-        let hoy = new Date();
+         let hoy = new Date();
         let horas = hoy.getHours();
         let minutos = hoy.getMinutes();
         let hora = horas + ':' + minutos;
@@ -48,8 +47,8 @@ class ContactosController {
             ciphers: 'SSLv3'
           },
           auth: {
-            user: 'ejemplo@ejemplo.com',
-            pass: '123456789'
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
           }
         });
   
@@ -64,7 +63,7 @@ class ContactosController {
                               `;
   
         const receiver = {
-          from: 'ejemplo@ejemplo.com',
+          from: process.env.EMAIL,
           to: 'programacion2ais@dispostable.com',
           subject: 'Informacion del Contacto',
           html: customer

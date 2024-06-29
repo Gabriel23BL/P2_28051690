@@ -9,10 +9,10 @@ const jwt = require('jsonwebtoken');
 
 AuthProtect.Passport();
 
-router.get('/github', passport.authenticate('github'));
-router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
+router.get('https://p2-28051690.onrender.com/github', passport.authenticate('github'));
+router.get('https://p2-28051690.onrender.com/callback/github', passport.authenticate('github', { failureRedirect: '/login' }),
   function (req, res) {
-    const id = process.env.ID;
+    const id = 'Ov23liLB16rsl5rkOzda';
     const token = jwt.sign({ id: id }, 'https://oauth2.googleapis.com/token');
     res.cookie("jwt", token);
     res.redirect('/contactos');
