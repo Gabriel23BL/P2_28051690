@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" sizes="16x16 32x32 48x48" type="image/png" href="/images/favicon.png" />
   <title>P2_28051690</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"/>
   <link rel='stylesheet' href='/stylesheets/style.css'>
@@ -124,7 +123,6 @@
             </div>
           </div>
         </article>
-        
         <article class="cuadro-info">
           <span class="subtitulo">HABILIDADES</span>
           <ul class="habilidades">
@@ -155,53 +153,52 @@
           </ul>
         </article>
       </section>
+
+      
     </div>
     
 
     <div class="contenedor3">
       <form class="formulario" action="/send" method="post">
-        <div class="campos-formularios">
-            <label class="rai" for="">Correo</label>
-            <input
-              class="input-registro"
-              placeholder="ejemplo@ejemplo.com"
-              type="text"
-              name="correo"
-            />
-        </div>
+          <label class="rai" for="">Correo</label><br />
+          <input
+            class="plo"
+            placeholder="ejemplo@ejemplo.com"
+            type="text"
+            name="correo"
+          /><br />
 
-        <div class="campos-formularios">
-            <label class="rai" for="">Nombre</label>
-            <input
-              class="input-registro"
-              placeholder="Nombre Completo"
-              type="text"
-              name="nombre"
-            />
-        </div>
+          <label class="rai" for="">Nombre</label><br />
+          <input
+            class="plo"
+            placeholder="Nombre Completo"
+            type="text"
+            name="nombre"
+          /><br />
 
-        <div class="campos-formularios">
-            <label class="rai" for="">Comentario</label>
-            <textarea
-              class="input-textarea"
-              placeholder="Ingresa tu comentario"
-              name="comentario"
-              id=""
-            ></textarea>
+          <label class="rai" for="">Comentario</label><br />
+          <textarea
+            placeholder="Ingresa tu comentario"
+            name="comentario"
+            id=""
+          ></textarea>
+          <br><br>
+            <div class="g-recaptcha" data-sitekey="6LdaS-8pAAAAAJzDt501pR9IgBQc3s0xOAKAAwaK"></div>
+            <br />
+            <button class="bto">Enviar</button>
+            <br>
+            <a href="/login">Ir al Login</a>
+          </form>
         </div>
-          
-        <div class="g-recaptcha" data-sitekey="6LdaS-8pAAAAAJzDt501pR9IgBQc3s0xOAKAAwaK"></div>
-            
-        <button class="bto">Enviar</button>
-            
-        <div class="enlaces">
-          <a href="/login">Ir al Login</a>
-          <a href="/">inicio</a>
-        </div>
-      </form>
-    </div>
+      </div>
 
-    <div class="mobil">
+
+
+
+
+
+
+      <div class="mobil">
         <section class="contenedor2">
           <div class="contenedor20">
             <article class="cuadro-imagen">
@@ -348,7 +345,10 @@
             </form>
           </div>
         </section>
-    </div>
-  </div>
+      </div>
+      
+    </section>
+    <script src="/javascripts/validacionform.js"></script>
+    <script src="../app.js"></script>
  </body>
 </html>
